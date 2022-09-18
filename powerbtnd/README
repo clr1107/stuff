@@ -1,0 +1,8 @@
+powerbtnd
+=========
+
+A daemon (to be run via systemd) to detect the power button being pressed and
+gracefully shutdown; whatever that means...
+
+The source code (powerbtnd.c) currently uses `/dev/input/event1` as the device
+file. To find the correct one use a utility such as `evtest`.

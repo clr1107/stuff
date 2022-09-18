@@ -1,0 +1,22 @@
+cmail
+=====
+
+A very simple email client.
+
+usage: cmail.py [-h] [-u USERNAME] [-p PASSWORD] [-s SMTP] [-sp PORT] -f FROM -t TO [-re SUBJECT]
+
+Send electronic mail
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -u USERNAME, --username USERNAME
+                        Server login username. Default env var 'CMAIL_USERNAME'.
+  -p PASSWORD, --password PASSWORD
+                        Server login password. Default env var 'CMAIL_PASSWORD'.
+  -s SMTP, --smtp SMTP  Server smtp address. Default env 'CMAIL_SMTP'.
+  -sp PORT, --port PORT
+                        Server port. Default env 'CMAIL_SMTP_PORT'.
+  -f FROM, --from FROM  From address
+  -t TO, --to TO        Recipient address
+  -re SUBJECT, --subject SUBJECT
+                        Email subject. Default date.
