@@ -1,4 +1,6 @@
-#!/usr/bin/python3
+m4_changecom(,)m4_dnl
+#!m4__PYTHON3_PATH
+m4_changecom(`#')m4_dnl
 
 import smtplib, ssl, os, sys, datetime
 import argparse

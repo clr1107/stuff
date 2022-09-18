@@ -1,6 +1,8 @@
 cmail
 =====
 
+*Run preproc.sh to add the correct shebang for this system*
+
 A very simple email client.
 
 usage: cmail.py [-h] [-u USERNAME] [-p PASSWORD] [-s SMTP] [-sp PORT] -f FROM -t TO [-re SUBJECT]
