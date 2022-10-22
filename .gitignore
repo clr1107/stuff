@@ -1,5 +1,5 @@
 .idea
 *.o
 *.dll
-*.py
+*.ignore
 .DS_Store
