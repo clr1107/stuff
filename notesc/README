@@ -1,0 +1,22 @@
+notesc
+=====
+
+*Run preproc.sh to add the correct shebang for this system*
+
+This program is intended to compile (Pandoc) markdown documents, university
+notes, into PDFs.
+
+usage: notesc.py [-h] [--input [INPUT]] [--output [OUTPUT]] [--prepend [PREPEND ...]]
+                 [--template [TEMPLATE]] [--debug]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input [INPUT], -i [INPUT]
+                        Input path. Use '-' or leave blank for stdin
+  --output [OUTPUT], -o [OUTPUT]
+                        Output path. Use '-' or leave blank for stdout
+  --prepend [PREPEND ...], -p [PREPEND ...]
+                        Path to file to prepend
+  --template [TEMPLATE], -t [TEMPLATE]
+                        LaTeX Pandoc template
+  --debug               Debug

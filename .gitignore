@@ -1,3 +1,5 @@
 .idea
 *.o
 *.dll
+*.py
+.DS_Store

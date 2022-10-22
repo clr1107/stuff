@@ -1,0 +1,49 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cmath}[2022 CMath]
+
+\RequirePackage{xparse}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{physics}
+\RequirePackage{siunitx}
+
+% Redefining
+\def\dee{\differential}
+\def\bb{\mathbb}
+\def\scr{\mathscr}
+\def\cal{\mathcal}
+
+% Operators and other symbols
+\DeclareMathOperator*{\argmin}{ arg\,min }
+\DeclareMathOperator*{\argmax}{ arg\,max }
+\DeclareMathOperator*{\bigo}{ \mathcal{O} }
+\DeclareMathOperator*{\E}{ \bb{E} }
+\DeclareMathOperator*{\prob}{ \bb{P} }
+\DeclareMathOperator*{\Var}{ Var }
+\DeclareMathOperator*{\Cov}{ Cov }
+\DeclareMathOperator*{\Corr}{ Corr }
+\DeclareMathOperator*{\Arg}{ Arg }
+\let\Im\relax \DeclareMathOperator*{\Im}{ \mathfrak{I} }
+\let\Re\relax \DeclareMathOperator*{\Re}{ \mathfrak{R} }
+\DeclareMathOperator*{\lxor}{ \veebar }
+
+
+% Linear Algebra
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\newcommand{\pvec}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
+
+% Calculus
+\newcommand{\cderiv}[3][]{ \frac{ {\dee}^{#1} #2 }{ \dee #3^{#1} } }
+\newcommand{\cpartial}[3][]{ \frac{ {\partial}^{#1} #2 }{ \partial #3^{#1} } }
+\newcommand{\cint}[2][]{\int#1 \! #2 \,}
+
+
+
+
+
+% Deprecated
+\newcommand{\cdims}[3][\bb{R}]{#1^{#2 \times #3}}
