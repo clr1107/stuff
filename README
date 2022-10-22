@@ -4,3 +4,20 @@ Stuff
 Useful scripts and small programs for everyday workflow. Mostly developed for
 Mac OSX or Linux environments. Both where possible and/or I can be bothered.
 Check each directory's README.
+
+Things included:
+
+- powerbtnd
+	A daemon (to be run via systemd) to detect the power button being pressed
+	and gracefully shutdown; whatever that means.
+- notesc
+	This program is intended to compile (Pandoc) markdown documents, university
+	notes, into PDFs.
+- general scripts
+	Includes some useful, general, and simple scripts.
+- cmail
+	A simple command line program that sends emails. Can take options or use
+	environment variables
+- LaTeX
+	Some LaTeX files I often use. E.g., cmath, which is a handy but tiny maths
+	library.
