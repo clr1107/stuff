@@ -1,3 +1,7 @@
+% CMATH 2022
+% chris@clr.is
+
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{cmath}[2022 CMath]
 
@@ -7,11 +11,13 @@
 \RequirePackage{physics}
 \RequirePackage{siunitx}
 
-% Redefining
+
+% Defining simple shortcuts
 \def\dee{\differential}
 \def\bb{\mathbb}
 \def\scr{\mathscr}
 \def\cal{\mathcal}
+
 
 % Operators and other symbols
 \DeclareMathOperator*{\argmin}{ arg\,min }
@@ -42,7 +48,15 @@
 \newcommand{\cint}[2][]{\int#1 \! #2 \,}
 
 
-
+% Non-specific stuff
+\makeatletter
+\renewcommand*{\@textcolor}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
 
 
 % Deprecated

@@ -1,12 +1,6 @@
-% Mostly the Pandoc original template
-% Modified with blocks inditiated with <clr> and terminated by </clr>
-% https://github.com/jgm/pandoc
-
-
-
-
-
-
+% Mostly the original Pandoc template
+% Modified with blocks initiated with <clr> and terminated by </clr>
+% github.com/jgm/pandoc
 
 
 % Options for packages loaded elsewhere
@@ -263,7 +257,9 @@ $endif$
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
-\usepackage{xcolor}
+%<clr>
+\usepackage[dvipsnames]{xcolor}
+%</clr>
 $if(geometry)$
 $if(beamer)$
 \geometry{$for(geometry)$$geometry$$sep$,$endfor$}
