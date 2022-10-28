@@ -57,9 +57,10 @@ $endfor$
 
 % --- Algorithm stuff ---
 
-\makeatletter
-\renewcommand{\fnum@algorithm}{\fname@algorithm}
-\makeatother
+% Disables *showing* numbering in algorithms
+% \makeatletter
+% \renewcommand{\fnum@algorithm}{\fname@algorithm}
+% \makeatother
 
 \algrenewcommand\algorithmicrequire{\textbf{Input:}}
 \algrenewcommand\algorithmicensure{\textbf{Output:}}
