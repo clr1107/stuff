@@ -4,6 +4,7 @@ m4_changecom(`#')m4_dnl
 
 import smtplib, ssl, os, sys, datetime
 import argparse
+import re
 
 
 def connect(username, password, smtp, port):
@@ -26,7 +27,7 @@ def send(server, f, to, re, body):
 		body,
 	)
 
-	server.sendmail(f, to, message)
+	server.sendmail(f, re.split(', |,', to), message)
 
 
 def do(username, password, smtp, port, f, to, re):
