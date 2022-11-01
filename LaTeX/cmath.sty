@@ -6,10 +6,8 @@
 \ProvidesPackage{cmath}[2022 CMath]
 
 \RequirePackage{xparse}
-\RequirePackage{amsmath}
+\RequirePackage{mathtools}
 \RequirePackage{amssymb}
-\RequirePackage{siunitx}
-\RequirePackage{unicode-math}
 
 
 % Defining simple shortcuts
@@ -17,6 +15,7 @@
 \def\bb{\mathbb}
 \def\scr{\mathscr}
 \def\cal{\mathcal}
+\def\grad{\nabla}
 
 
 % Operators and other symbols
@@ -41,6 +40,16 @@
   \array{#1}}
 \newcommand{\pvec}[1]{\begin{pmatrix} #1 \end{pmatrix}}
 
+\PassOptionsToPackage{bold-style=ISO}{unicode-math}
+\AtBeginDocument{%
+    \@ifpackageloaded{unicode-math}{%
+        \newcommand{\vb}{\symbf}
+    }{%
+        \RequirePackage{bm}
+        \newcommand{\vb}{\bm}
+    }%
+}
+
 
 % Calculus
 \newcommand{\cderiv}[3][]{ \frac{ {\dee}^{#1} #2 }{ \dee #3^{#1} } }
@@ -49,6 +58,7 @@
 
 
 % Non-specific stuff
+\@ifpackageloaded{xcolor}{%
 \makeatletter
 \renewcommand*{\@textcolor}[3]{%
   \protect\leavevmode
@@ -56,7 +66,8 @@
     \color#1{#2}#3%
   \endgroup
 }
-\makeatother
+\makeatother%
+}{}
 
 
 % Deprecated
