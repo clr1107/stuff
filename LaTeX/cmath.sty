@@ -43,10 +43,10 @@
 \PassOptionsToPackage{bold-style=ISO}{unicode-math}
 \AtBeginDocument{%
     \@ifpackageloaded{unicode-math}{%
-        \newcommand{\vb}{\symbf}
+        \newcommand{\vb}{\symbf}%
     }{%
         \RequirePackage{bm}
-        \newcommand{\vb}{\bm}
+        \newcommand{\vb}{\bm}%
     }%
 }
 
@@ -68,6 +68,16 @@
 }
 \makeatother%
 }{}
+
+\newcommand{\codspace}{%
+\mathchoice%
+    {\mkern18mu}%
+    {\mkern2mu}%
+    {\mkern1mu}%
+    {\mkern1mu}%
+}
+\renewcommand{\pod}[1]{\codspace(#1)}
+\renewcommand{\mod}[1]{\codspace\operatorname{mod}\,\,#1}
 
 
 % Deprecated
