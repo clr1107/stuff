@@ -8,6 +8,7 @@
 \RequirePackage{xparse}
 \RequirePackage{mathtools}
 \RequirePackage{amssymb}
+\RequirePackage{amsthm}
 
 
 % Defining simple shortcuts
@@ -78,6 +79,15 @@
 }
 \renewcommand{\pod}[1]{\codspace(#1)}
 \renewcommand{\mod}[1]{\codspace\operatorname{mod}\,\,#1}
+
+\renewcommand{\qedsymbol}{\textsc{Qed.}}
+
+\newenvironment{subproof}[1][\proofname]{%
+  \renewcommand{\qedsymbol}{$\square$}%
+  \begin{proof}[#1]%
+}{%
+  \end{proof}%
+}
 
 
 % Deprecated
