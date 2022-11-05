@@ -21,7 +21,6 @@
 \usepackage{algpseudocode}
 \usepackage{algorithm}
 \usepackage{src/cmath}
-\usepackage{unicode-math}
 
 \makeatletter
 \patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
@@ -59,9 +58,8 @@
 
 \setcounter{secnumdepth}{-\maxdimen}
 
-\usepackage{fontspec}
-\setmainfont{Palatino}
-\setmathfont{Palatino}
+\usepackage{fontenc}
+\usepackage{newtxmath,newtxtext}
 
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\parindent}{0pt}

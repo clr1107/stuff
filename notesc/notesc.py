@@ -61,7 +61,7 @@ def run(data):
 
     cmd = [
         'pandoc', 
-        '-s', '--toc', '--pdf-engine=xelatex', '--to=pdf', '--from=markdown',
+        '-s', '--toc', '--pdf-engine=pdflatex', '--to=pdf', '--from=markdown',
         '--filter=pandoc-crossref'
     ]
 

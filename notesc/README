@@ -1,5 +1,10 @@
 notesc
-=====
+======
+
+
+To compile university notes in the way I do, refer to the template in
+LaTeX/notes_template.tex, which requires cmath, in LaTeX/cmath.sty.
+
 
 *Run preproc.sh to add the correct shebang for this system*
 
