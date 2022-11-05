@@ -1,5 +1,5 @@
 % CMATH 2022
-% chris@clr.is
+% <chris@clr.is>
 
 
 \NeedsTeXFormat{LaTeX2e}
@@ -44,10 +44,17 @@
 \PassOptionsToPackage{bold-style=ISO}{unicode-math}
 \AtBeginDocument{%
     \@ifpackageloaded{unicode-math}{%
-        \newcommand{\vb}{\symbf}%
+        \newcommand{\vb}{\symbf}
+
+        \newcommand{\mb}{\symbf}%  Matrices should be bold?
+        % \newcommand{\mb}[1]{#1}% Matrices oughtn't be bold?
     }{%
         \RequirePackage{bm}
-        \newcommand{\vb}{\bm}%
+        \newcommand{\vb}{\bm}
+
+
+        \newcommand{\mb}{\bm}%  Matrices should be bold?
+        % \newcommand{\mb}[1]{#1}% Matrices oughtn't be bold?
     }%
 }
 
@@ -79,14 +86,13 @@
 }
 \renewcommand{\pod}[1]{\codspace(#1)}
 \renewcommand{\mod}[1]{\codspace\operatorname{mod}\,\,#1}
+\newcommand{\nsmod}[1]{\,\operatorname{mod}\,#1}
 
-\renewcommand{\qedsymbol}{\textsc{Qed.}}
-
-\newenvironment{subproof}[1][\proofname]{%
-  \renewcommand{\qedsymbol}{$\square$}%
-  \begin{proof}[#1]%
+\NewDocumentEnvironment{subproof}{ O{\proofname} O{$\square$} }{%
+    \renewcommand{\qedsymbol}{#2}%
+    \begin{proof}[#1]%
 }{%
-  \end{proof}%
+    \end{proof}%
 }
 
 
