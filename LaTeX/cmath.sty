@@ -88,11 +88,12 @@
 \renewcommand{\mod}[1]{\codspace\operatorname{mod}\,\,#1}
 \newcommand{\nsmod}[1]{\,\operatorname{mod}\,#1}
 
-\NewDocumentEnvironment{subproof}{ O{\proofname} O{$\square$} }{%
+\NewDocumentEnvironment{subproof}{ O{Subproof} O{\(\square\)} }{%
     \renewcommand{\qedsymbol}{#2}%
-    \begin{proof}[#1]%
+    \par\noindent \textit{#1}%
 }{%
-    \end{proof}%
+    \hfill \qedsymbol%
+    \vspace{1ex}%
 }
 
 

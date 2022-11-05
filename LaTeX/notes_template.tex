@@ -64,9 +64,33 @@
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\parindent}{0pt}
 
-\newtheorem{theorem}{\textcolor{cyan}{Theorem}}
-\newtheorem*{claim}{\textcolor{orange}{Claim}}
+% <Theorems and proof stuff>
+
+\definecolor{cc_A}{RGB}{5,100,77}
+\definecolor{cc_B}{RGB}{103,37,107}
+\definecolor{cc_C}{RGB}{48,102,190}
+
+\newtheoremstyle{cthmstyle}{}{}{\color{cc_A}}{}{\color{cc_A}\bfseries}{}{ }{}
+\newtheoremstyle{cclaimstyle}{}{}{\color{cc_B}}{}{\color{cc_B}\bfseries}{}{ }{}
+
+\theoremstyle{cthmstyle}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{cclaimstyle}
+\newtheorem*{claim}{Claim}
+
+\makeatletter
+\RenewDocumentEnvironment{proof}{ O{\proofname} }{%
+    \paragraph{#1}
+    \mbox{}\\*%
+}{%
+    \hfill \qedsymbol
+}
+\makeatother
+
+\renewcommand{\proofname}{\normalfont{\textcolor{cc_C}{\textbf{Proof}}}}
 \renewcommand{\qedsymbol}{\textsc{Qed.}}
+
+% </Theorem and proof stuff>
 
 % <Algorithm stuff>
 
