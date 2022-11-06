@@ -77,15 +77,15 @@
 \makeatother%
 }{}
 
-\newcommand{\codspace}{%
+\newcommand{\varstylespace}{%
 \mathchoice%
     {\mkern18mu}%
     {\mkern2mu}%
     {\mkern1mu}%
     {\mkern1mu}%
 }
-\renewcommand{\pod}[1]{\codspace(#1)}
-\renewcommand{\mod}[1]{\codspace\operatorname{mod}\,\,#1}
+\renewcommand{\pod}[1]{\varstylespace(#1)}
+\renewcommand{\mod}[1]{\varstylespace\operatorname{mod}\,\,#1}
 \newcommand{\nsmod}[1]{\,\operatorname{mod}\,#1}
 
 \NewDocumentEnvironment{subproof}{ O{Subproof} O{\(\square\)} }{%
@@ -94,6 +94,7 @@
 }{%
     \hfill \qedsymbol%
     \vspace{1ex}%
+    \ignorespacesafterend%
 }
 
 

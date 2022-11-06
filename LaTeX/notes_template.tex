@@ -64,6 +64,21 @@
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\parindent}{0pt}
 
+% Allow markdown asterisk notation, for use in LaTeX environments.
+% https://tex.stackexchange.com/a/236457
+\makeatletter
+\def\starparse{\@ifnextchar*{\bfstarx}{\itstar}}
+\def\bfstarx#1{\@ifnextchar*{\bfitstar\@gobble}{\bfstar}}
+\makeatother
+\def\itstar#1*{\textit{#1}\enableMarkdownAst}
+\def\bfstar#1**{\textbf{#1}\enableMarkdownAst}
+\def\bfitstar#1***{\textbf{\textit{#1}}\enableMarkdownAst}
+\def\enableMarkdownAst{\catcode`\*=\active}
+\def\disableMarkdownAst{\catcode`\*=12}
+\enableMarkdownAst
+\def*{\disableMarkdownAst \starparse}
+\disableMarkdownAst
+
 % <Theorems and proof stuff>
 
 \definecolor{cc_A}{RGB}{5,100,77}
@@ -78,14 +93,12 @@
 \theoremstyle{cclaimstyle}
 \newtheorem*{claim}{Claim}
 
-\makeatletter
 \RenewDocumentEnvironment{proof}{ O{\proofname} }{%
     \paragraph{#1}
     \mbox{}\\*%
 }{%
     \hfill \qedsymbol
 }
-\makeatother
 
 \renewcommand{\proofname}{\normalfont{\textcolor{cc_C}{\textbf{Proof}}}}
 \renewcommand{\qedsymbol}{\textsc{Qed.}}
