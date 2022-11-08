@@ -58,52 +58,6 @@
 
 \setcounter{secnumdepth}{-\maxdimen}
 
-% <Font stuff>
-
-\usepackage{fontenc}
-\usepackage{newtxmath,newtxtext}
-
-\definecolor{cc_A}{RGB}{5,100,77}    % Dark green
-\definecolor{cc_B}{RGB}{103,37,107}  % Purple
-\definecolor{cc_C}{RGB}{48,102,190}  % Light blue
-\definecolor{cc_D}{RGB}{255,0,110}   % Bright pink
-\definecolor{cc_E}{RGB}{244,93,1}    % Dark amber
-
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\parindent}{0pt}
-
-\makeatletter
-% Equations
-\renewcommand{\eqref}[1]{\textup{\eqreftagform@{\ref{#1}}}}
-\let\eqreftagform@\tagform@
-\def\tagform@#1{%
-  \maketag@@@{\color{cc_D}(\ignorespaces#1\unskip\@@italiccorr)}%
-}
-\renewcommand*{\p@equation}[1]{\textcolor{cc_D}{#1}}
-
-% Figures
-\PassOptionsToPackage{font={color=cc_E}}{caption}
-\usepackage{caption}
-\renewcommand*{\p@figure}[1]{\textcolor{cc_E}{#1}}
-\makeatother
-
-% </Font stuff>
-
-% Allow markdown asterisk notation, for use in LaTeX environments.
-% https://tex.stackexchange.com/a/236457
-\makeatletter
-\def\starparse{\@ifnextchar*{\bfstarx}{\itstar}}
-\def\bfstarx#1{\@ifnextchar*{\bfitstar\@gobble}{\bfstar}}
-\makeatother
-\def\itstar#1*{\textit{#1}\enableMarkdownAst}
-\def\bfstar#1**{\textbf{#1}\enableMarkdownAst}
-\def\bfitstar#1***{\textbf{\textit{#1}}\enableMarkdownAst}
-\def\enableMarkdownAst{\catcode`\*=\active}
-\def\disableMarkdownAst{\catcode`\*=12}
-\enableMarkdownAst
-\def*{\disableMarkdownAst \starparse}
-\disableMarkdownAst
-
 % <Theorems and proof stuff>
 
 \newtheoremstyle{cthmstyle}{}{}{\color{cc_A}}{}{\color{cc_A}\bfseries}{}{ }{}
@@ -126,6 +80,21 @@
 
 % </Theorem and proof stuff>
 
+% Allow markdown asterisk notation, for use in LaTeX environments.
+% https://tex.stackexchange.com/a/236457
+\makeatletter
+\def\starparse{\@ifnextchar*{\bfstarx}{\itstar}}
+\def\bfstarx#1{\@ifnextchar*{\bfitstar\@gobble}{\bfstar}}
+\makeatother
+\def\itstar#1*{\textit{#1}\enableMarkdownAst}
+\def\bfstar#1**{\textbf{#1}\enableMarkdownAst}
+\def\bfitstar#1***{\textbf{\textit{#1}}\enableMarkdownAst}
+\def\enableMarkdownAst{\catcode`\*=\active}
+\def\disableMarkdownAst{\catcode`\*=12}
+\enableMarkdownAst
+\def*{\disableMarkdownAst \starparse}
+\disableMarkdownAst
+
 % <Algorithm stuff>
 
 \algrenewcommand\algorithmicrequire{\textbf{Input:}}
@@ -138,6 +107,42 @@
 \algdef{S}[WHILE]{WhileExists}[1]{\algorithmicwhileexists\ #1\ \algorithmicdo}
 
 % </Algorithm stuff>
+
+% <Font stuff>
+
+\usepackage{fontenc}
+\usepackage{newtxmath,newtxtext}
+
+\definecolor{cc_A}{RGB}{5,100,77}    % Dark green
+\definecolor{cc_B}{RGB}{103,37,107}  % Purple
+\definecolor{cc_C}{RGB}{48,102,190}  % Light blue
+\definecolor{cc_D}{RGB}{255,0,110}   % Bright pink
+\definecolor{cc_E}{RGB}{244,93,1}    % Dark amber
+
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\parindent}{0pt}
+
+\makeatletter
+% Equations
+\renewcommand{\eqref}[1]{\textup{\eqreftagform@{\ref{#1}}}}
+\let\eqreftagform@\tagform@
+\def\tagform@#1{%
+  \maketag@@@{\color{cc_D}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\renewcommand*{\p@equation}[1]{\textcolor{cc_D}{\bfseries #1}}
+
+% Figures
+\PassOptionsToPackage{font={color=cc_E}}{caption}
+\PassOptionsToPackage{font={color=cc_E}}{subfig}
+\usepackage{caption, subfig}
+\renewcommand*{\p@figure}[1]{\textcolor{cc_E}{\bfseries #1}}
+\renewcommand*{\p@subfigure}[1]{\textcolor{cc_E}{\bfseries\@nameuse{thefigure}#1}}
+
+% Theorems
+\renewcommand*{\p@theorem}[1]{\textcolor{cc_A}{\bfseries #1}}
+\makeatother
+
+% </Font stuff>
 
 $for(header-includes)$
 $header-includes$
