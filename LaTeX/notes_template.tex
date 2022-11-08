@@ -58,11 +58,36 @@
 
 \setcounter{secnumdepth}{-\maxdimen}
 
+% <Font stuff>
+
 \usepackage{fontenc}
 \usepackage{newtxmath,newtxtext}
 
+\definecolor{cc_A}{RGB}{5,100,77}    % Dark green
+\definecolor{cc_B}{RGB}{103,37,107}  % Purple
+\definecolor{cc_C}{RGB}{48,102,190}  % Light blue
+\definecolor{cc_D}{RGB}{255,0,110}   % Bright pink
+\definecolor{cc_E}{RGB}{244,93,1}    % Dark amber
+
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\parindent}{0pt}
+
+\makeatletter
+% Equations
+\renewcommand{\eqref}[1]{\textup{\eqreftagform@{\ref{#1}}}}
+\let\eqreftagform@\tagform@
+\def\tagform@#1{%
+  \maketag@@@{\color{cc_D}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\renewcommand*{\p@equation}[1]{\textcolor{cc_D}{#1}}
+
+% Figures
+\PassOptionsToPackage{font={color=cc_E}}{caption}
+\usepackage{caption}
+\renewcommand*{\p@figure}[1]{\textcolor{cc_E}{#1}}
+\makeatother
+
+% </Font stuff>
 
 % Allow markdown asterisk notation, for use in LaTeX environments.
 % https://tex.stackexchange.com/a/236457
@@ -80,10 +105,6 @@
 \disableMarkdownAst
 
 % <Theorems and proof stuff>
-
-\definecolor{cc_A}{RGB}{5,100,77}
-\definecolor{cc_B}{RGB}{103,37,107}
-\definecolor{cc_C}{RGB}{48,102,190}
 
 \newtheoremstyle{cthmstyle}{}{}{\color{cc_A}}{}{\color{cc_A}\bfseries}{}{ }{}
 \newtheoremstyle{cclaimstyle}{}{}{\color{cc_B}}{}{\color{cc_B}\bfseries}{}{ }{}
