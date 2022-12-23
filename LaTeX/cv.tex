@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage[left=0.75in,right=0.75in,top=1.25in,bottom=1.25in,headsep=0.7in]{geometry}
+\usepackage{etoolbox}
+\usepackage{xltabular}
+
+\newtoggle{address}
+\toggletrue{address} % Remove this if you don't want the address
+
+\def \email {name@email.com}
+\def \tel {00000000000}
+\def \address {10 Downing Street, London, SW1 2AA}
+
+\sectionfont{\fontsize{10}{10}\selectfont}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    
+    \fancyhead[L]{
+        \begin{tabular}{ll}
+             {\Large \textbf{First Last}} & \\
+            \textit{Curriculum Vitae} &
+        \end{tabular}
+    }
+    
+    \fancyhead[R]{
+            \begin{tabular}{rl}
+                 \textsc{Tel}: & \tel \\
+                 \textsc{Email}: & \texttt{\email}
+            \end{tabular}
+    }
+    
+    \iftoggle{address}{\fancyfoot[L]{\scshape
+        \address
+    }}{}
+    
+}
+
+\pagestyle{plain}
+
+\begin{document}
+
+\section*{OVERVIEW}
+
+I am a third year undergraduate at University of Durham pursuing a Degree Name. I am proficient in Skills Here.
+
+\vspace{4ex}
+
+\section*{EDUCATION}
+
+\newcommand{\tablebreak}{& \begin{tabularx}{\linewidth}{@{}c@{}}\\[4ex]\end{tabularx} \\}
+\begin{tabularx}{\textwidth}[l]{|l|X|}
+
+    \textit{2013-2020} & {\begin{tabularx}{\linewidth}[l]{@{}l@{}}
+        \textbf{School Name} \\
+        \textsc{Durham, DH1 3EE} \\~\\
+        A-Levels (2020) A* \textit{Mathematics}, A* \textit{Physics}, A* \textit{Computer Science} \\
+        GCSEs (2018) 9x Grade 9
+    \end{tabularx}} \\
+    
+    \tablebreak
+    
+    \textit{2020-2024} & {\begin{tabularx}{\linewidth}[l]{@{}l@{}}
+        \textbf{University of Durham} \\
+        \textsc{St Cuthbert's Society} \\~\\
+        Master of Engineering, Computer Science
+    \end{tabularx}}
+\end{tabularx}
+\let\tablebreak\undefined
+
+\vspace{4ex}
+
+\section*{EMPLOYMENT}
+\newcommand{\centerbreak}{\vspace{2ex}}
+
+\begin{center}
+    \textbf{Employer} \\
+    \textsc{Durham, DH1 3EE} \\
+    \textit{(2022-)} \\~\\
+    
+    \begin{justify}
+    Content here.
+    \end{justify}
+\end{center}
+
+\centerbreak
+
+\begin{center}
+    \textbf{Employer} \\
+    \textit{(2022-)} \\~\\
+    
+    \begin{justify}
+    Content here. 
+    \end{justify}
+\end{center}
+
+\let\centerbreak\undefined
+
+\vfill
+\end{document}
