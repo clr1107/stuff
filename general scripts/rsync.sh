@@ -4,7 +4,7 @@
 if [ "$#" -eq 0 ] || [ "$1" == "-h" ]; then
 	echo "Usage: rsync.sh [opts] <src> <dst>"
 	echo "For Linux FS use opts: -a"
-	echo "For reduced FS use opts: -rt"
+	echo "For reduced FS use opts: -r --size-only"
 	echo "For deleting, use: --delete-delay --delete-excluded"
 	echo "To disable compression use: --no-z"
 	exit 0
