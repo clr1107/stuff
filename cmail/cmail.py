@@ -1,10 +1,8 @@
-m4_changecom(,)m4_dnl
-#!m4__PYTHON3_PATH
-m4_changecom(`#')m4_dnl
+#!/usr/bin/python3
 
-import smtplib, ssl, os, sys, datetime
+import smtplib, ssl, os, sys, datetime, traceback
 import argparse
-import re
+import re as regex
 
 
 def connect(username, password, smtp, port):
@@ -27,15 +25,7 @@ def send(server, f, to, re, body):
 		body,
 	)
 
-	server.sendmail(f, re.split(', |,', to), message)
-
-
-def do(username, password, smtp, port, f, to, re):
-	if os.isatty(sys.stdin.fileno()):
-		raise Exception('no bytes in stdin')
-
-	server = connect(username, password, smtp, port)
-	send(server, f, to, re, '\n'.join(sys.stdin.readlines()))
+	server.sendmail(f, regex.split(', |,', to), message)
 
 
 if __name__ == '__main__':
@@ -61,15 +51,23 @@ if __name__ == '__main__':
 		sys.exit(2)
 
 	try:
-		do(
+		if os.isatty(sys.stdin.fileno()):
+			raise Exception('no bytes in stdin')
+
+		server = connect(
 			args['username'],
 			args['password'],
 			args['smtp'],
-			args['port'],
-			args['from'],
-			args['to'],
-			args['subject']
+			args['port']
+		)
+		send(
+			server, 
+			args['from'], 
+			args['to'], 
+			args['subject'], 
+			'\n'.join(sys.stdin.readlines())
 		)
 	except Exception as e:
+		traceback.print_exc()
 		print('cmail_error: {}'.format(e))
 		sys.exit(1)

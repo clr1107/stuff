@@ -1,7 +1,7 @@
 cmail
 =====
 
-*Run preproc.sh to add the correct shebang for this system*
+*cmail.py contains a shebang, ensure it is the install location of python3*
 
 A very simple email client.
 
