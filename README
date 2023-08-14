@@ -21,3 +21,5 @@ Things included:
 - LaTeX
 	Some LaTeX files I often use. E.g., cmath, which is a handy but tiny maths
 	library.
+- netmonitor
+	A simple program that will ping all listed addresses & email any that fail.
