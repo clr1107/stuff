@@ -12,9 +12,10 @@ services = [
 
 
 def poll(address):
-	return os.system("ping {} 2 {}".format(
+	return os.system("ping {} 2 {} >{}".format(
 		'-n' if os.name == 'nt' else '-c',
-		address
+		address,
+		'nul' if os.name == 'nt' else '/dev/null'
 	)) == 0
 
 
@@ -22,10 +23,14 @@ def do(username, password, smtp, port, f, to):
 	failed = list()
 
 	for service in services:
+		print('Polling {}...'.format(service))
 		if not poll(service):
+			print('\tFailed!')
 			failed.append(service)
+		else:
+			print('\tSuccess.')
 
-	print('Tested {} services, {} failed'.format(len(services), len(failed)))
+	print('\n\nTested {} services, {} failed'.format(len(services), len(failed)))
 
 	if not failed:
 		return
@@ -33,7 +38,7 @@ def do(username, password, smtp, port, f, to):
 	server = cmail.connect(username, password, smtp, port)
 	msg = 'The following {} service{} failed a poll:\n{}'.format(
 		len(failed),
-		'' if len(failed) == 1 else 's'
+		'' if len(failed) == 1 else 's',
 		'\n'.join(failed)
 	)
 	subject = '[URGENT] netmonitor: service{} UNREACHABLE'.format('' if len(failed) == 1 else 's')
@@ -55,7 +60,7 @@ if __name__ == '__main__':
 	args = vars(parser.parse_args())
 
 	if None in args.values():
-		sys.stderr.write('no value set for: {}'.format(
+		sys.stderr.write('no value set for: {}\n'.format(
 			', '.join([k for k in args if args[k] is None])
 		))
 		parser.print_help()
