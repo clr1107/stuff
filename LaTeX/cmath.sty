@@ -17,6 +17,7 @@
 \def\scr{\mathscr}
 \def\cal{\mathcal}
 \def\grad{\nabla}
+\def\notimplies{\,\,\,\not\!\!\!\implies}
 
 
 % Operators and other symbols
@@ -32,6 +33,9 @@
 \let\Im\relax \DeclareMathOperator*{\Im}{ \mathfrak{I} }
 \let\Re\relax \DeclareMathOperator*{\Re}{ \mathfrak{R} }
 \DeclareMathOperator*{\lxor}{ \veebar }
+\DeclareMathOperator*{\xor}{ \oplus }
+\DeclareMathOperator{\trace}{tr}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
 
 % Linear Algebra
@@ -87,6 +91,7 @@
 \renewcommand{\pod}[1]{\varstylespace(#1)}
 \renewcommand{\mod}[1]{\varstylespace\operatorname{mod}\,\,#1}
 \newcommand{\nsmod}[1]{\,\operatorname{mod}\,#1}
+\newcommand{\mathsc}[1]{{\normalfont\textsc{#1}}}
 
 \NewDocumentEnvironment{subproof}{ O{Subproof} O{\(\square\)} }{%
     \renewcommand{\qedsymbol}{#2}%
